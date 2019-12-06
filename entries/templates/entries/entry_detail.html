@@ -1,7 +1,7 @@
 {% extends "entries/base.html" %}
 {% block content %}
 <!-- Blog Entries Column -->
-<div class="col-md-8">
+<div class="col-md-8 mt-4">
 
 <a href="{%url 'blog-home'%}"class="btn btn-primary btn-sm">Back To Home</a>
   <!-- Blog Post -->
@@ -14,6 +14,11 @@
       Posted on {{ object.entry_date }} by
       <span class= "text-info mr-2">{{ object.entry_author }}</span>
     </div>
+    <div class="col-md-8">
+      <a href="{% url 'entry-update' object.id %}"class="btn btn-outline-info btn-sm">Update</a>
+      <a href="{% url 'entry-delete' object.id %}"class="btn btn-outline-danger btn-sm">Delete</a>
+    </div>
+
   </div>
 
 
