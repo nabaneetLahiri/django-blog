@@ -24,7 +24,7 @@ SECRET_KEY = 'f7&3h%xdb@b)y()x%&939^rq3y_1=f(#x&)%9md77jmk_tq$p('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [blogedureka.herokuapp.com]
+ALLOWED_HOSTS = ['blogedureka.herokuapp.com']
 
 
 # Application definition
