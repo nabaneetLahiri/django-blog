@@ -1,0 +1,16 @@
+{% extends "users/base.html" %}
+{% block content %}
+<div class="col-md-8">
+  <div class="card mb-4 mt-4">
+    <div class="card-header">Login to your account
+    </div>
+    <div class="card-body">
+      <form  method="post">{% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-primary">Log In</button>
+        <a href="{% url 'register' %}" class="btn btn-success">Register</a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
