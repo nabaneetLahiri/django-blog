@@ -9,11 +9,14 @@
     <div class="card-body">
       <h2 class="card-title">{{ entry.entry_title }}</h2>
       <p class="card-text">{{ entry.entry_text|truncatechars:100 }}</p>
-      <a href="{% url 'entry-detail' entry.pk %}" class="btn btn-primary btn-sm">Read More &rarr;</a>
+      <div>
+
+        <a href="{% url 'entry-detail' entry.pk %}" class="btn btn-primary btn-sm">Read More &rarr;</a>
+      </div>
     </div>
     <div class="card-footer text-muted">
       Posted on {{ entry.entry_date }} by
-      <span class= "text-info mr-2">{{ entry.entry_author }}</span>
+      <span class= "text-info mr-2">{{ entry.entry_author }}</span><span>Likes: {{entry.likes.count}} <a href="{% url 'entry-like' entry.id %}" class="btn btn-success fa fa-thumbs-up" aria-hidden="true"></a> Disikes: {{entry.dislikes.count}} <a href="{% url 'entry-dislike' entry.id %}" class="btn btn-danger fa fa-thumbs-up" aria-hidden="true"></a></span>
     </div>
   </div>
   {% endfor %}

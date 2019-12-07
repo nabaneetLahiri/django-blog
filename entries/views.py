@@ -1,9 +1,15 @@
 from django.shortcuts import render
-from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView
+from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView,RedirectView
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 from .models import Entry
 # Create your views here.
 class HomeView(LoginRequiredMixin,ListView):
+    model=Entry
+    template_name='entries/index.html'
+    context_object_name="blog_entries"
+    ordering=['-entry_date']
+    paginate_by=3
+class MyView(LoginRequiredMixin,ListView):
     model=Entry#.objects.get(entry_author__exact=.request.user)
     template_name='entries/index.html'
     context_object_name="blog_entries"
@@ -43,3 +49,31 @@ class DeleteEntryView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
         if self.request.user==entry.entry_author:
             return True
         return False
+class PostLikeView(RedirectView):
+    pattern_name = 'entry-detail'
+    def get_redirect_url(self, *args, **kwargs):
+        obj = Entry.objects.get(pk=kwargs['pk'])
+        user = self.request.user
+        if user.is_authenticated:
+            if user in obj.dislikes.all():
+                obj.dislikes.remove(user)
+                obj.likes.add(user)
+            elif user in obj.likes.all():
+                obj.likes.remove(user)
+            else:
+                obj.likes.add(user)
+        return super().get_redirect_url(*args, **kwargs)
+class PostDislikeView(RedirectView):
+    pattern_name = 'entry-detail'
+    def get_redirect_url(self, *args, **kwargs):
+        obj = Entry.objects.get(pk=kwargs['pk'])
+        user = self.request.user
+        if user.is_authenticated:
+            if user in obj.likes.all():
+                obj.likes.remove(user)
+                obj.dislikes.add(user)
+            elif user in obj.dislikes.all():
+                obj.dislikes.remove(user)
+            else:
+                obj.dislikes.add(user)
+        return super().get_redirect_url(*args, **kwargs)
