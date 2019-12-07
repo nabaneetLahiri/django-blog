@@ -9,6 +9,8 @@ class HomeView(LoginRequiredMixin,ListView):
     context_object_name="blog_entries"
     ordering=['-entry_date']
     paginate_by=3
+    #for q in Entry.objects.filter(id__exact=8) :
+    #    print(q.image.url)
 class MyView(LoginRequiredMixin,ListView):
     model=Entry#.objects.get(entry_author__exact=.request.user)
     template_name='entries/index.html'
@@ -25,14 +27,14 @@ class EntryView(LoginRequiredMixin,DetailView):
 class CreateEntryView(LoginRequiredMixin,CreateView):
     model=Entry
     template_name="entries/create_entry.html"
-    fields=["entry_title","entry_text"]
+    fields=["entry_title","entry_text","image"]
     def form_valid(self, form):
         form.instance.entry_author=self.request.user
         return super().form_valid(form)
 class UpdateEntryView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
     model=Entry
     template_name="entries/create_entry.html"
-    fields=["entry_title","entry_text"]
+    fields=["entry_title","entry_text","image"]
     def form_valid(self, form):
         form.instance.entry_author=self.request.user
         return super().form_valid(form)

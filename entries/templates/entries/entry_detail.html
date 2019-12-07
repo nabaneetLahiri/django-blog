@@ -7,6 +7,9 @@
   <div class="card mb-4 mt-4">
     <div class="card-body">
       <h2 class="card-title">{{ object.entry_title }}</h2>
+      {% if object.image %}
+      <img src="{{object.image.url}}" class="img-thumbnail" >
+      {% endif %}
       <p class="card-text">{{ object.entry_text|linebreaks }}</p>
     </div>
     <div class="col-md-8">

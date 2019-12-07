@@ -8,6 +8,9 @@
   <div class="card mb-4 mt-4">
     <div class="card-body">
       <h2 class="card-title">{{ entry.entry_title }}</h2>
+      {% if entry.image %}
+      <img src="{{entry.image.url}}" class="img-thumbnail" >
+      {% endif %}
       <p class="card-text">{{ entry.entry_text|truncatechars:100 }}</p>
       <div>
 
