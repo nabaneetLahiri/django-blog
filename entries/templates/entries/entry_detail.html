@@ -13,7 +13,7 @@
       <p class="card-text">{{ object.entry_text|linebreaks }}</p>
     </div>
     <div class="col-md-8">
-      <p >Likes: {{object.likes.count}} <a href="{% url 'entry-like' object.id %}" class="btn btn-success fa fa-thumbs-up" aria-hidden="true"></a> Disikes: {{object.dislikes.count}} <a href="{% url 'entry-dislike' object.id %}" class="btn btn-danger fa fa-thumbs-up" aria-hidden="true"></a></p>
+      <p >Likes: {{object.likes.count}} <a href="{% url 'entry-like' object.id %}" class="btn btn-success fa fa-thumbs-up" aria-hidden="true"></a> Disikes: {{object.dislikes.count}} <a href="{% url 'entry-dislike' object.id %}" class="btn btn-danger fa fa-thumbs-down" aria-hidden="true"></a></p>
     </div>
     <div class="card-footer text-muted">
       Posted on {{ object.entry_date }} by
