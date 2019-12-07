@@ -19,7 +19,7 @@
     </div>
     <div class="card-footer text-muted">
       Posted on {{ entry.entry_date }} by
-      <span class= "text-info mr-2">{{ entry.entry_author }}</span><span>Likes: {{entry.likes.count}} <a href="{% url 'entry-like' entry.id %}" class="btn btn-success fa fa-thumbs-up" aria-hidden="true"></a> Disikes: {{entry.dislikes.count}} <a href="{% url 'entry-dislike' entry.id %}" class="btn btn-danger fa fa-thumbs-up" aria-hidden="true"></a></span>
+      <span class= "text-info mr-2">{{ entry.entry_author }}</span><span>Likes: {{entry.likes.count}} <a href="{% url 'entry-like' entry.id %}" class="btn btn-success fa fa-thumbs-up" aria-hidden="true"></a> Disikes: {{entry.dislikes.count}} <a href="{% url 'entry-dislike' entry.id %}" class="btn btn-danger fa fa-thumbs-down" aria-hidden="true"></a></span>
     </div>
   </div>
   {% endfor %}
