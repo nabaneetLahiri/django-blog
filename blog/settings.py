@@ -128,8 +128,8 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL='blog-home'
 LOGIN_URL="login"
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-
+MEDIA_URL='/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
