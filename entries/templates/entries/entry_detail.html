@@ -19,11 +19,12 @@
       Posted on {{ object.entry_date }} by
       <span class= "text-info mr-2">{{ object.entry_author }}</span>
     </div>
+    {% ifequal user object.entry_author %}
     <div class="col-md-8">
       <a href="{% url 'entry-update' object.id %}"class="btn btn-outline-info btn-sm">Update</a>
       <a href="{% url 'entry-delete' object.id %}"class="btn btn-outline-danger btn-sm">Delete</a>
     </div>
-
+    {% endifequal %}
   </div>
 
 
