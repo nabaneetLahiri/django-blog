@@ -4,9 +4,9 @@ https://blogged-basic.herokuapp.com/
 <h3>Problem using sqlite.</h4>
 After the dyno, in heroku, sleeps the data base gets reset. Solution for this is using postgresql.
 <ul>
-  <li><h4>Step 1:<h4> We need to change setting.py file:
+  <li>Step 1: We need to change setting.py file:
        postgres local system config:
-    <span data-selectable-paragraph>
+    ```python
         DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -17,4 +17,5 @@ After the dyno, in heroku, sleeps the data base gets reset. Solution for this is
         'PORT':'5432',
     }
 }
-   </span>    
+   
+```
