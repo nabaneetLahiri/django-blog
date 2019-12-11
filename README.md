@@ -4,7 +4,8 @@ https://blogged-basic.herokuapp.com/
 <h3>Problem using sqlite.</h3>
 After the dyno, in heroku, sleeps the data base gets reset. Solution for this is using postgresql.
 <h4>Step 1: We need to change setting.py file:</h4>
-<h6>postgres local system config:</h6>
+postgres local system config:
+
 ```python
  DATABASES = {
     'default': {
