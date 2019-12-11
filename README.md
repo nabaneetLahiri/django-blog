@@ -58,7 +58,7 @@ Create a database in postgresql
 <br><br>
 Name of new database is website
 <br><br>
-<img src="https://github.com/nabaneetLahiri/django-blog/blob/master/readmeImg/3.PNG">
+<img src="https://github.com/nabaneetLahiri/django-blog/blob/master/readmeImg/3.png">
 <br><br>
 Open anaconda promt run
 
