@@ -34,4 +34,16 @@ DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True
 ```
 <h4>Step 2: Upload the local postgresql databse onto heroku</h4>
 Install postgresql.
-During intlallation remember the password
+During instlallation remember the password that is asked for postgres user let this be PassWord
+Add the bin and lib folder of postgresql to path
+```cli
+Control Panel
+  All Control Panel Items
+    System
+      Advanced System Settings
+        Environment Variables
+          from the System Variables box select "PATH"
+              Edit...
+    
+   ;C:\Program Files\PostgreSQL\9.2\bin;C:\Program Files\PostgreSQL\9.2\lib
+```
