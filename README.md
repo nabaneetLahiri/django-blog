@@ -49,5 +49,5 @@ Control Panel
    ;C:\Program Files\PostgreSQL\9.2\bin;C:\Program Files\PostgreSQL\9.2\lib
 ```
 
-Create a database in postgresql
+Create a database in postgresql<br>
 <img src="https://github.com/nabaneetLahiri/django-blog/blob/master/readme%20img/db1.PNG">
