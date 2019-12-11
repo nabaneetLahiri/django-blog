@@ -68,6 +68,8 @@ heroku pg:info -a blogged-basic
 ```
 blogged-basic is the name of app in heroku
 <br><br>
+Take note of value in 'Addon' field this is the name of heroku database 'postgresql-convex-45212'
+
 ```cli
 === DATABASE_URL
 Plan:                  Hobby-dev
@@ -83,16 +85,17 @@ Rollback:              Unsupported
 Continuous Protection: Off
 Add-on:                postgresql-convex-45212
 ```
-Take note of value in 'Addon' field this is the heroku database let this be 'postgresql-convex-45212'
-<br><br>
-run 
+
+Now take posgres account and it password which was set during installation and run:
 
 ```cli
 SET PGUSER=postgres
 SET PGPASSWORD=PassWord
 heroku pg:push postgres://localhost/website  postgresql-convex-45212
 ```
-here localhost can be replaced by name_of_host, website can be replaced by name_of_local_database and postgresql-convex-45212 replaced by nameOfHerokuDB in general the command will look like.
+here localhost can be replaced by name_of_host, website can be replaced by name_of_local_database and postgresql-convex-45212 replaced by nameOfHerokuDB.
+<br>
+In general the command will look like:
 
 ```cli
 heroku pg:push postgres://name_of_host/name_of_local_database nameOfHerokuDB
