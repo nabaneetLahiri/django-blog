@@ -34,7 +34,10 @@ DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True
 ```
 <h4>Step 2: Upload the local postgresql databse onto heroku</h4>
 Install postgresql.<br>
-During instlallation remember the password that is asked for postgres user let this be 'PassWord'<br>
+During instlallation remember the password that is asked for postgres user let this be 'PassWord'
+<br><br>
+<img src="https://github.com/nabaneetLahiri/django-blog/blob/master/readmeImg/1.jpg">
+<br><br>
 Add the bin and lib folder of postgresql to path<br>
 
 ```cli
@@ -51,11 +54,11 @@ Control Panel
 
 Create a database in postgresql
 <br><br>
-<img src="https://github.com/nabaneetLahiri/django-blog/blob/master/readme%20img/db1.PNG">
+<img src="https://github.com/nabaneetLahiri/django-blog/blob/master/readmeImg/2.PNG">
 <br><br>
 Name of new database is website
 <br><br>
-<img src="https://github.com/nabaneetLahiri/django-blog/blob/master/readme%20img/db2.PNG">
+<img src="https://github.com/nabaneetLahiri/django-blog/blob/master/readmeImg/3.PNG">
 <br><br>
 Open anaconda promt run
 
