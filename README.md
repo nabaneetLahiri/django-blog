@@ -50,4 +50,4 @@ Control Panel
 ```
 
 Create a database in postgresql
-<img href="https://github.com/nabaneetLahiri/django-blog/blob/master/readme%20img/db1.PNG">
+<img src="https://github.com/nabaneetLahiri/django-blog/blob/master/readme%20img/db1.PNG">
