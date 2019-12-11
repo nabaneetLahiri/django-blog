@@ -34,7 +34,7 @@ DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True
 ```
 <h4>Step 2: Upload the local postgresql databse onto heroku</h4>
 Install postgresql.<br>
-During instlallation remember the password that is asked for postgres user let this be PassWord<br>
+During instlallation remember the password that is asked for postgres user let this be 'PassWord'<br>
 Add the bin and lib folder of postgresql to path<br>
 
 ```cli
@@ -53,7 +53,29 @@ Create a database in postgresql
 <br><br>
 <img src="https://github.com/nabaneetLahiri/django-blog/blob/master/readme%20img/db1.PNG">
 <br><br>
-Name of new databae in website
+Name of new database is website
 <br><br>
 <img src="https://github.com/nabaneetLahiri/django-blog/blob/master/readme%20img/db2.PNG">
+<br><br>
+Open anaconda promt run
 
+```cli
+heroku login
+heroku pg:info -a blogged-basic
+```
+blogged-basic is the name of app in heroku
+<br><br>
+Take note of value in 'Addon' field this is the heroku database let this be 'postgresql-convex-45212'
+<br><br>
+run 
+
+```cli
+SET PGUSER=postgres
+SET PGPASSWORD=PassWord
+heroku pg:push postgres://localhost/website  postgresql-convex-45212
+```
+here localhost can be replaced by name_of_host, website can be replaced by name_of_local_database and postgresql-convex-45212 replaced by nameOfHerokuDB in general the command will look like.
+
+```cli
+heroku pg:push postgres://name_of_host/name_of_local_database nameOfHerokuDB
+```
