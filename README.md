@@ -6,7 +6,7 @@ After the dyno, in heroku, sleeps the data base gets reset. Solution for this is
 <ul>
   <li>Step 1: We need to change setting.py file:
        postgres local system config:
-    ```python
+```python
         DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
