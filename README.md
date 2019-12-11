@@ -35,6 +35,8 @@ DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True
 <h4>Step 2: Upload the local postgresql databse onto heroku</h4>
 Install postgresql.<br>
 During instlallation remember the password that is asked for postgres user let this be 'PassWord'
+<br>
+Later on 'postgres' will be used as PGUSER and 'PassWord' as PGPASSWORD.
 <br><br>
 <img src="https://github.com/nabaneetLahiri/django-blog/blob/master/readmeImg/1.jpg">
 <br><br>
@@ -68,7 +70,7 @@ heroku pg:info -a blogged-basic
 ```
 blogged-basic is the name of app in heroku
 <br><br>
-Take note of value in 'Addon' field this is the name of heroku database 'postgresql-convex-45212'
+Take note of value in 'Add-on' field this is the name_of_Heroku_database 'postgresql-convex-45212'
 
 ```cli
 === DATABASE_URL
@@ -93,10 +95,10 @@ SET PGUSER=postgres
 SET PGPASSWORD=PassWord
 heroku pg:push postgres://localhost/website  postgresql-convex-45212
 ```
-here localhost can be replaced by name_of_host, website can be replaced by name_of_local_database and postgresql-convex-45212 replaced by nameOfHerokuDB.
+here localhost can be replaced by name_of_host, website can be replaced by name_of_local_database and postgresql-convex-45212 replaced by name_of_Heroku_database.
 <br>
 In general the command will look like:
 
 ```cli
-heroku pg:push postgres://name_of_host/name_of_local_database nameOfHerokuDB
+heroku pg:push postgres://name_of_host/name_of_local_database name_of_Heroku_database
 ```
