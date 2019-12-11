@@ -65,6 +65,21 @@ heroku pg:info -a blogged-basic
 ```
 blogged-basic is the name of app in heroku
 <br><br>
+```cli
+=== DATABASE_URL
+Plan:                  Hobby-dev
+Status:                Available
+Connections:           2/20
+PG Version:            11.6
+Created:               2019-12-06 14:15 UTC
+Data Size:             9.0 MB
+Tables:                13
+Rows:                  64/10000 (In compliance)
+Fork/Follow:           Unsupported
+Rollback:              Unsupported
+Continuous Protection: Off
+Add-on:                postgresql-convex-45212
+```
 Take note of value in 'Addon' field this is the heroku database let this be 'postgresql-convex-45212'
 <br><br>
 run 
