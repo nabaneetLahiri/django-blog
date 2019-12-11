@@ -51,3 +51,5 @@ Control Panel
 
 Create a database in postgresql<br>
 <img src="https://github.com/nabaneetLahiri/django-blog/blob/master/readme%20img/db1.PNG">
+<img src="https://github.com/nabaneetLahiri/django-blog/blob/master/readme%20img/db2.PNG">
+
