@@ -76,7 +76,8 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 # Postgres SQL config
 import psycopg2
-DATABASE_URL = os.environ['DATABASE_URL']
+#DATABASE_URL = os.environ['DATABASE_URL']
+DATABASE_URL=postgres://clfzkjnaipgzoz:4ae31d702f3a71ab210f773b2b01d637775a26447581717622c916ab91b33f0d@ec2-50-19-95-77.compute-1.amazonaws.com:5432/dcvdutve8jftqp
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 import dj_database_url
 DATABASES={}
