@@ -76,8 +76,7 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 # Postgres SQL config
 import psycopg2
-#DATABASE_URL = os.environ['DATABASE_URL']
-DATABASE_URL=postgres://clfzkjnaipgzoz:4ae31d702f3a71ab210f773b2b01d637775a26447581717622c916ab91b33f0d@ec2-50-19-95-77.compute-1.amazonaws.com:5432/dcvdutve8jftqp
+DATABASE_URL = os.environ['DATABASE_URL']
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 import dj_database_url
 DATABASES={}
@@ -90,6 +89,13 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+#SQLite heroku config
+import dj_database_url
+db_from_env=dj_database_url.config(conn_max_age=500)
+#DATABASES['default'].update(db_from_env)
+DATABASES['default'] = dj_database_url.parse('sqlite:///db.sqlite3', conn_max_age=600)
+
+
 """
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -122,11 +128,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-import dj_database_url
-db_from_env=dj_database_url.config(conn_max_age=500)
-#DATABASES['default'].update(db_from_env)
-DATABASES['default'] = dj_database_url.parse('sqlite:///db.sqlite3', conn_max_age=600)
 
 
 # Static files (CSS, JavaScript, Images)
