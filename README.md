@@ -36,6 +36,7 @@ DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True
 Install postgresql.
 During instlallation remember the password that is asked for postgres user let this be PassWord
 Add the bin and lib folder of postgresql to path
+
 ```cli
 Control Panel
   All Control Panel Items
