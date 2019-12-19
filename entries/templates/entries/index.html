@@ -3,23 +3,26 @@
 <!-- Blog Entries Column -->
 <div class="col-md-8">
 
-  {% for entry in blog_entries %}
+  {% for object in blog_entries %}
   <!-- Blog Post -->
   <div class="card mb-4 mt-4">
     <div class="card-body">
-      <h2 class="card-title">{{ entry.entry_title }}</h2>
-      {% if entry.image %}
-      <img src="{{entry.image.url}}" class="img-thumbnail" >
+      <h2 class="card-title">{{ object.entry_title }}</h2>
+      {% if object.image %}
+      <img src="{{object.image.url}}" class="img-thumbnail" >
       {% endif %}
-      <p class="card-text">{{ entry.entry_text|truncatechars:100 }}</p>
+      <p class="card-text">{{ object.entry_text|safe}}</p>
       <div>
 
-        <a href="{% url 'entry-detail' entry.pk %}" class="btn btn-primary btn-sm">Read More &rarr;</a>
+        <a href="{% url 'detail' object.id %}" id="{{object.id}}" class="btn btn-primary btn-sm">Read More &rarr;</a>
       </div>
     </div>
     <div class="card-footer text-muted">
-      Posted on {{ entry.entry_date }} by
-      <span class= "text-info mr-2">{{ entry.entry_author }}</span><span>Likes: {{entry.likes.count}} <a href="{% url 'entry-like' entry.id %}" class="btn btn-success fa fa-thumbs-up" aria-hidden="true"></a> Disikes: {{entry.dislikes.count}} <a href="{% url 'entry-dislike' entry.id %}" class="btn btn-danger fa fa-thumbs-down" aria-hidden="true"></a></span>
+      Posted on {{ object.entry_date }} by
+      <span class= "text-info mr-2">{{ object.entry_author }}</span>
+  	<div id="like-section-{{object.id}}" >
+      {% include 'entries/like_section.html' %}
+  	</div>
     </div>
   </div>
   {% endfor %}
