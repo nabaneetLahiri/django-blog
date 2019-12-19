@@ -10,9 +10,18 @@ def register(request):
             username=request.POST['username']
             password=request.POST['password1']
             user=authenticate(request,username=username,password=password)
+            user.is_staff = True
+            user.save()
             login(request,user)
             return redirect('blog-home')
     else:
         form=RegistrationForm()
     context={'form':form}
     return render(request,'users/register.html',context)
+from django.http import JsonResponse
+def validate_username(request):
+    username = request.GET.get('username', None)
+    data = {
+        'is_taken': User.objects.filter(username__iexact=username).exists()
+    }
+    return JsonResponse(data)

@@ -1,0 +1,5 @@
+
+<form  action="{% url 'like_post' %}" method="POST">
+			{% csrf_token %}
+			<p>{{object.likes.count}} <button class="btn btn-outline-success fa fa-thumbs-up" type="submit" id="like" name="id" value="{{ object.id }}" ></button> {{object.dislikes.count}} <button class="btn btn-outline-danger fa fa-thumbs-down" type="submit" id="dislike" name="id" value="{{ object.id }}" ></button></p>
+</form>

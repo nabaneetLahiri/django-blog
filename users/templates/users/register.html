@@ -1,4 +1,28 @@
 {% extends "users/base.html" %}
+
+{% block javascript %}
+  <script>
+    $("#id_username").change(function () {
+	e.preventDefault();
+      var username = $(this).val();
+
+      $.ajax({
+        url: '/ajax/validate_username/',
+        data: {
+          'username': username
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (data.is_taken) {
+            alert("A user with this username already exists.");
+          }
+        }
+      });
+
+    });
+  </script>
+{% endblock %}
+
 {% block content %}
 <div class="col-md-8">
   <div class="card mb-4 mt-4">

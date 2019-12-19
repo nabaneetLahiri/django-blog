@@ -1,5 +1,6 @@
 {% extends "entries/base.html" %}
 {% block content %}
+
 <!-- Blog Entries Column -->
 <div class="col-md-8 mt-4">
   <!-- Blog Post -->
@@ -9,24 +10,24 @@
       {% if object.image %}
       <img src="{{object.image.url}}" class="img-thumbnail" >
       {% endif %}
-      <p class="card-text">{{ object.entry_text|linebreaks|urlize }}</p>
+      <p class="card-text">{{ object.entry_text|safe }}</p>
     </div>
-    <div class="col-md-8">
-      <p >Likes: {{object.likes.count}} <a href="{% url 'entry-like' object.id %}" class="btn btn-success fa fa-thumbs-up" aria-hidden="true"></a> Disikes: {{object.dislikes.count}} <a href="{% url 'entry-dislike' object.id %}" class="btn btn-danger fa fa-thumbs-down" aria-hidden="true"></a></p>
-    </div>
+	<div id="like-section-{{object.id}}" class="col-md-8">
+    {% include 'entries/like_section.html' %}
+	</div>
     <div class="card-footer text-muted">
       Posted on {{ object.entry_date }} by
       <span class= "text-info mr-2">{{ object.entry_author }}</span>
+        {% ifequal user object.entry_author %}
+          <a style="float:right;" href="{% url 'delete' object.id %}"class="btn btn-outline-danger btn-sm fa fa-remove"id="delete"></a>
+          <a style="float:right;" href="{% url 'entry-update' object.id %}"class="btn btn-outline-info btn-sm fa fa-pencil"></a>
+        {% endifequal %}
     </div>
-    {% ifequal user object.entry_author %}
-    <div class="col-md-8">
-      <a href="{% url 'entry-update' object.id %}"class="btn btn-outline-info btn-sm">Update</a>
-      <a href="{% url 'entry-delete' object.id %}"class="btn btn-outline-danger btn-sm">Delete</a>
+    {% if not object.restrict_comment %}
+    <div id="comment-section-{{object.id}}" class="main-comment-section col-md-12 mt-4" >
+      {% include 'entries/comment.html' %}
     </div>
-    {% endifequal %}
+    {% endif %}
   </div>
-
-
-
 </div>
 {% endblock %}
